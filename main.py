@@ -27,7 +27,7 @@ if len(arr) > 1:
     i = 0
     j = 0
     k = 0
-        # Copy data to temp arrays L[] and R[]
+
     while cmp(i, len(L)) < 0 and cmp(j, len(R)) < 0:
         if cmp(L[i], R[j]) < 0:
             arr[k] = L[i]
@@ -37,7 +37,6 @@ if len(arr) > 1:
             j += 1
         k += 1
  
-        # Checking if any element was left
     while cmp(i, len(L)) < 0:
         arr[k] = L[i]
         i += 1
@@ -49,4 +48,30 @@ if len(arr) > 1:
         k += 1
 # must be in-place sort
 def quick_sort(arr,cmp):
-    pass
+    l = 0
+    h = len(arr) - 1
+    if l < h:
+  
+        pivot = partition(array, l, h)
+        R = arr[0:pivot-1]
+        L = arr[pivot:h]
+        quick_sort(R, cmp)
+  
+        quick_sort(L,cmp)
+    
+
+def partition(arr, l, h):
+  
+    pivot = arr[h]
+  
+    i = l - 1
+  
+    for j in range(l, h):
+        if arr[j] <= pivot:
+            i = i + 1
+  
+            (arr[i], arr[j]) = (arr[j], arr[i])
+  
+    (arr[i + 1], arr[h]) = (arr[h], arr[i + 1])
+
+    return i + 1
