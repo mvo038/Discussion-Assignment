@@ -28,7 +28,7 @@ if len(arr) > 1:
     j = 0
     k = 0
 
-    while cmp(i, len(L)) < 0 and cmp(j, len(R)) < 0:
+    while i < len(L) and j < len(R):
         if cmp(L[i], R[j]) < 0:
             arr[k] = L[i]
             i += 1
@@ -37,12 +37,12 @@ if len(arr) > 1:
             j += 1
         k += 1
  
-    while cmp(i, len(L)) < 0:
+    while i < len(L):
         arr[k] = L[i]
         i += 1
         k += 1
  
-    while cmp(j, len(R)) < 0:
+    while j < len(R):
         arr[k] = R[j]
         j += 1
         k += 1
