@@ -52,7 +52,7 @@ def quick_sort(arr,cmp):
     h = len(arr) - 1
     if l < h:
   
-        pivot = partition(array, l, h)
+        pivot = partition(array, l, h, cmp)
         R = arr[0:pivot-1]
         L = arr[pivot:h]
         quick_sort(R, cmp)
@@ -60,14 +60,14 @@ def quick_sort(arr,cmp):
         quick_sort(L,cmp)
     
 
-def partition(arr, l, h):
+def partition(arr, l, h, cmp):
   
     pivot = arr[h]
   
     i = l - 1
   
     for j in range(l, h):
-        if arr[j] <= pivot:
+        if cmp(arr[j], pivot) < 0:
             i = i + 1
   
             (arr[i], arr[j]) = (arr[j], arr[i])
